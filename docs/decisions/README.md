@@ -30,3 +30,4 @@ the check issue — rather than one issue per decision.
 | [ACA-0064](ACA-0064-qwen-reasoning-budgets.md) | Qwen reasoning budgets — visible answer bound, deterministic hidden-reasoning bound, frozen JudgeClient | Accepted |
 | [ACA-0070](ACA-0070-judge-token-budgets.md) | One raised judge token budget (32,768) for every check and route; narrows ACA-0064's Qwen-only remedy | Accepted |
 | [ACA-0080](ACA-0080-classifier-routes.md) | Classifier routes — classification-axis measurement is not qualification; a route that cannot emit the verdict artifact enters as screening, never as a judge | Proposed |
+| [ACA-0095](ACA-0095-check-deadlines.md) | One deadline and one publication boundary per check; preserved JudgeClient port, bounded retries, redacted timings | Proposed |
