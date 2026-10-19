@@ -45,7 +45,7 @@ jobs:
       - name: Fetch agentic-code-analysis
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: qwts/agentic-code-analysis
+          repository: true-line/agentic-code-analysis
           ref: 0b49ecb70a9c6ef7f44f190256822bced9d4fa20
           path: .aca
           persist-credentials: false
