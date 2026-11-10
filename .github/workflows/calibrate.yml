@@ -49,16 +49,9 @@ concurrency:
 jobs:
   policy:
     name: Action Policy
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      # The organisation's Linux runner does not carry Node on its default PATH.
-      # This step reaches for `node`, or runs an action that does, so the
-      # runtime is installed first, with the same pinned action the rest of
-      # the workflow already uses.
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: 24
       - uses: true-line/trueline-agent-ci/.github/actions/ci-policy@87c6b301057992f79a723f63c64624bf40c9d06a
         with:
           authorization-only: 'true'
@@ -66,7 +59,7 @@ jobs:
   select:
     name: Select checks
     needs: policy
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
     timeout-minutes: 22
     outputs:
       checks: ${{ steps.list.outputs.checks }}
@@ -99,7 +92,7 @@ jobs:
   qualify:
     name: ${{ matrix.check }}
     needs: select
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -156,7 +149,7 @@ jobs:
     name: Qualification summary
     needs: [policy, select, qualify]
     if: always() && needs.policy.result == 'success'
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
